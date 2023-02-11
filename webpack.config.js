@@ -4,7 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   entry: "./src/index.jsx",
   output: {
-    path: __dirname + "/pubic",
+    path: __dirname + "/public",
     filename: "./app.js",
   },
   devServer: {
@@ -43,7 +43,7 @@ module.exports = {
         loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
       },
       {
-        test: /\.woof|.woff2|.ttf|.eot|.svg|.png|.jpg*.*$/,
+        test: /\.woff|.woff2|.ttf|.eot|.svg|.png|.jpg*.*$/,
         loader: "file",
       },
     ],
