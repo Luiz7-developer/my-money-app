@@ -2,22 +2,27 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { selectTab } from "./tabActions";
+import If from "../operator/if";
 
 class TabHeader extends Component {
   render() {
     const selected = this.props.tab.selected === this.props.target;
+    //Se o atributo do objeto tiver o nome do objeto do target e se o resiltado for true ele vai marccar como visivel
+    const visible = this.props.tab.visible[this.props.target];
     return (
-      <li className={selected ? "active" : ""}>
-        <a
-          href="javascript:;"
-          data-toggle="tab"
-          onClick={() => this.props.selectTab(this.props.target)}
-          data-target={this.props.target}
-        >
-          <i className={`fa fa-${this.props.icon}`}></i>
-          {this.props.label}
-        </a>
-      </li>
+      <If test={visible}>
+        <li className={selected ? "active" : ""}>
+          <a
+            href="javascript:;"
+            data-toggle="tab"
+            onClick={() => this.props.selectTab(this.props.target)}
+            data-target={this.props.target}
+          >
+            <i className={`fa fa-${this.props.icon}`}></i>
+            {this.props.label}
+          </a>
+        </li>
+      </If>
     );
   }
 }
