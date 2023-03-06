@@ -7,7 +7,7 @@ import If from "../operator/if";
 class TabHeader extends Component {
   render() {
     const selected = this.props.tab.selected === this.props.target;
-    //Se o atributo do objeto tiver o nome do objeto do target e se o resiltado for true ele vai marccar como visivel
+    //Se o atributo do objeto tiver o nome do objeto do target e se o resultado for true ele vai marccr como visivel
     const visible = this.props.tab.visible[this.props.target];
     return (
       <If test={visible}>
