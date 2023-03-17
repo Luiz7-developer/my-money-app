@@ -8,9 +8,17 @@ import ItemList from "./itemList";
 import Summary from "./summary";
 
 class BillingCycleForm extends Component {
+  calculateSummary() {
+    const soma = (x, y) => x + y;
+    return {
+      somaOfCredits: this.props.credits.map((c) => +c.value || 0).reduce(soma),
+      somaOfDebts: this.props.debts.map((d) => +d.value || 0).reduce(soma),
+    };
+  }
+
   render() {
     const { handleSubmit, readOnly, credits, debts } = this.props;
-
+    const { somaOfCredits, somaOfDebts } = this.calculateSummary();
     return (
       <form role="form" onSubmit={handleSubmit}>
         <div className="box-body">
@@ -40,7 +48,7 @@ class BillingCycleForm extends Component {
             cols="12 4"
             placeholder="Informe o Ano"
           />
-          <Summary credit={1000} debt={100} />
+          <Summary credit={somaOfCredits} debt={somaOfDebts} />
 
           <ItemList
             cols="12 6"
