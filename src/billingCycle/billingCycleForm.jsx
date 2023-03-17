@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { init } from "./billingCyclesActions";
 import ItemList from "./itemList";
+import Summary from "./summary";
 
 class BillingCycleForm extends Component {
   render() {
@@ -39,6 +40,8 @@ class BillingCycleForm extends Component {
             cols="12 4"
             placeholder="Informe o Ano"
           />
+          <Summary credit={1000} debt={100} />
+
           <ItemList
             cols="12 6"
             list={credits}
