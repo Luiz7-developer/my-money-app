@@ -4,7 +4,7 @@ import Grid from "../common/layout/grid";
 import Input from "../common/form/input";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { bind } from "file-loader";
+import If from "../common/operator/if";
 
 class itemList extends Component {
   add(index, item = {}) {
@@ -31,6 +31,7 @@ class itemList extends Component {
             readOnly={this.props.readOnly}
           ></Field>
         </td>
+
         <td>
           <Field
             name={`${this.props.field}[${index}].value`}
@@ -39,6 +40,18 @@ class itemList extends Component {
             readOnly={this.props.readOnly}
           ></Field>
         </td>
+
+        <If test={this.props.showStatus}>
+          <td>
+            <Field
+              name={`${this.props.field}[${index}].status`}
+              component={Input}
+              placeholder="Informe o Status"
+              readOnly={this.props.readOnly}
+            ></Field>
+          </td>
+        </If>
+
         <td>
           <button
             type="button"
@@ -47,6 +60,7 @@ class itemList extends Component {
           >
             <i className="fa fa-plus"></i>
           </button>
+
           <button
             type="button"
             className="btn btn-warning"
@@ -54,6 +68,7 @@ class itemList extends Component {
           >
             <i className="fa fa-clone"></i>
           </button>
+
           <button
             type="button"
             className="btn btn-danger"
@@ -75,6 +90,9 @@ class itemList extends Component {
               <tr>
                 <th>Nome</th>
                 <th>Valor</th>
+                <If test={this.props.showStatus}>
+                  <th>Status</th>
+                </If>
                 <th className="table-actions">Ações</th>
               </tr>
             </thead>

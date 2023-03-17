@@ -3,10 +3,9 @@ import { values } from "lodash";
 import { toastr } from "react-redux-toastr";
 import { reset as resetForm, initialize } from "redux-form";
 import { showTabs, selectTab } from "../common/tab/tabActions";
-import billingCycleList from "./billingCycleList";
 
 const BASE_URL = "http://localhost:3003/api";
-const INITIAL_VALUES = { credits: [{}] };
+const INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
 export function getList() {
   const request = axios.get(`${BASE_URL}/billingCycles`);
