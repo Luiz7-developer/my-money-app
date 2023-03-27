@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./main/app";
+import Routes from "./main/routes";
 import reducers from "./main/reducers";
 import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
@@ -17,7 +17,7 @@ const store = applyMiddleware(multi, thunk, promise)(createStore)(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>,
   document.getElementById("app")
 );
