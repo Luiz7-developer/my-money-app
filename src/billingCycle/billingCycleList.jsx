@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
-import { connect, Connect } from "react-redux";
+import { connect } from "react-redux";
 import { getList, showUpdate, showDelete } from "./billingCyclesActions";
 
 class BilingCycleList extends Component {
@@ -26,7 +26,7 @@ class BilingCycleList extends Component {
             className="btn btn-danger"
             onClick={() => this.props.showDelete(billic)}
           >
-            <i className="fa fa-pencil"></i>
+            <i className="fa fa-trash-o"></i>
           </button>
         </td>
       </tr>
